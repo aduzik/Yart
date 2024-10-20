@@ -1,0 +1,12 @@
+### YamlMime:TableOfContent
+items:
+- uid: Yart.Yart
+  name: Yart.Yart
+  items:
+  - uid: Yart.Yart.Error
+    name: Error
+  - uid: Yart.Yart.Result
+    name: Result
+  - uid: Yart.Yart.Result`1
+    name: Result<T>
+memberLayout: SamePage

@@ -10,7 +10,7 @@ namespace Yart.Yart;
 /// Represents the outcome of an operation
 /// </summary>
 /// <remarks>
-/// <para><see cref="Result"/> is a result type that wraps the outcome of an operation. A result can be either a success or a failure.</para>
+/// <para><see cref="Result"/> is a type that wraps the outcome of an operation. A result can be either a success or a failure.</para>
 /// <para>The <see cref="Result"/> type does not expose its constructor. Instead, use the <see cref="Ok"/> and <see cref="Failure"/> methods to create instances.</para>
 /// </remarks>
 public readonly struct Result
@@ -46,16 +46,16 @@ public readonly struct Result
     }
 
     /// <summary>
-    /// <seealso langword="true"/> when the result is a success, <seealso langword="false" /> otherwise.
+    /// <see langword="true"/> when the result is a success, <see langword="false" /> otherwise.
     /// </summary>
     public bool IsSuccessful => _isSuccessful;
     /// <summary>
-    /// <seealso langword="true"/> when the result is a failure, <seealso langword="false" /> otherwise.
+    /// <see langword="true"/> when the result is a failure, <see langword="false" /> otherwise.
     /// </summary>
     public bool IsFailure => !_isSuccessful;
 
     /// <summary>
-    /// The error for a failure result. May be <seealso langword="null" />
+    /// The error for a failure result. May be <see langword="null"/>
     /// </summary>
     /// <exception cref="InvalidOperationException">Thrown when the result is not a failure.</exception>
     public Error? Error => !_isSuccessful

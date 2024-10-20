@@ -8,8 +8,8 @@ namespace Yart.Yart;
 /// Represents the outcome of an operation
 /// </summary>
 /// <remarks>
-/// <para><see cref="Result"/> is a result type that wraps the outcome of an operation. A result can be either a success or a failure.</para>
-/// <para>The <see cref="Result"/> type does not expose its constructor. Instead, use the <see cref="Result.Ok{T}"/> and <see cref="Result.Failure"/> methods to create instances.</para>
+/// <para><see cref="Result{T}"/> is a type that wraps the outcome of an operation. A result can be either a success or a failure.</para>
+/// <para>The <see cref="Result{T}"/> type does not expose its constructor. Instead, use the <see cref="Result.Ok{T}"/> and <see cref="Result.Failure"/> methods to create instances.</para>
 /// </remarks>
 public readonly struct Result<T>
 {
@@ -24,17 +24,17 @@ public readonly struct Result<T>
     }
 
     /// <summary>
-    /// <seealso langword="true"/> when the result is a success, <seealso langword="false" /> otherwise.
+    /// <see langword="true"/> when the result is a success, <see langword="false" /> otherwise.
     /// </summary>
     public bool IsSuccessful => _isSuccessful;
 
     /// <summary>
-    /// <seealso langword="true"/> when the result is a failure, <seealso langword="false" /> otherwise.
+    /// <see langword="true"/> when the result is a failure, <see langword="false" /> otherwise.
     /// </summary>
     public bool IsFailure => !_isSuccessful;
 
     /// <summary>
-    /// The error for a failure result. May be <seealso langword="null" />
+    /// The error for a failure result. May be <see langword="null" />
     /// </summary>
     /// <exception cref="InvalidOperationException">Thrown when the result is not a failure.</exception>
     public Error? Error =>
@@ -80,11 +80,20 @@ public readonly struct Result<T>
             ? successFunc(_value!)
             : failureFunc(_error);
 
+    /// <summary>
+    /// Converts an untyped error result to a typed error result
+    /// </summary>
+    /// <param name="result">An untyped error result</param>
+    /// <exception cref="InvalidCastException">Thrown if the result is not a failure</exception>
     public static implicit operator Result<T>(Result result) =>
         result.IsFailure
             ? new Result<T>(isSuccessful: false, result.Error)
-            : throw new InvalidOperationException();
+            : throw new InvalidCastException();
 
+    /// <summary>
+    /// Converts a typed result into an untyped result
+    /// </summary>
+    /// <param name="result">An untyped result</param>
     public static implicit operator Result(Result<T> result) => 
         result._isSuccessful
             ? Result.Ok()

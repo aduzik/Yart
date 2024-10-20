@@ -1,0 +1,81 @@
+### YamlMime:ManagedReference
+items:
+- uid: Yart.Yart
+  commentId: N:Yart.Yart
+  id: Yart.Yart
+  children:
+  - Yart.Yart.Error
+  - Yart.Yart.Result
+  - Yart.Yart.Result`1
+  langs:
+  - csharp
+  - vb
+  name: Yart.Yart
+  nameWithType: Yart.Yart
+  fullName: Yart.Yart
+  type: Namespace
+  assemblies:
+  - Yart.Yart
+references:
+- uid: Yart.Yart.Error
+  commentId: T:Yart.Yart.Error
+  parent: Yart.Yart
+  href: Yart.Yart.Error.html
+  name: Error
+  nameWithType: Error
+  fullName: Yart.Yart.Error
+- uid: Yart.Yart.Result
+  commentId: T:Yart.Yart.Result
+  parent: Yart.Yart
+  href: Yart.Yart.Result.html
+  name: Result
+  nameWithType: Result
+  fullName: Yart.Yart.Result
+- uid: Yart.Yart.Result`1
+  commentId: T:Yart.Yart.Result`1
+  parent: Yart.Yart
+  href: Yart.Yart.Result-1.html
+  name: Result<T>
+  nameWithType: Result<T>
+  fullName: Yart.Yart.Result<T>
+  nameWithType.vb: Result(Of T)
+  fullName.vb: Yart.Yart.Result(Of T)
+  name.vb: Result(Of T)
+  spec.csharp:
+  - uid: Yart.Yart.Result`1
+    name: Result
+    href: Yart.Yart.Result-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Yart.Yart.Result`1
+    name: Result
+    href: Yart.Yart.Result-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Yart.Yart
+  commentId: N:Yart.Yart
+  href: Yart.html
+  name: Yart.Yart
+  nameWithType: Yart.Yart
+  fullName: Yart.Yart
+  spec.csharp:
+  - uid: Yart
+    name: Yart
+    href: Yart.html
+  - name: .
+  - uid: Yart.Yart
+    name: Yart
+    href: Yart.Yart.html
+  spec.vb:
+  - uid: Yart
+    name: Yart
+    href: Yart.html
+  - name: .
+  - uid: Yart.Yart
+    name: Yart
+    href: Yart.Yart.html

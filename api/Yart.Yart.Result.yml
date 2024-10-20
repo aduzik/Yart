@@ -1,0 +1,976 @@
+### YamlMime:ManagedReference
+items:
+- uid: Yart.Yart.Result
+  commentId: T:Yart.Yart.Result
+  id: Result
+  parent: Yart.Yart
+  children:
+  - Yart.Yart.Result.Error
+  - Yart.Yart.Result.Failure(Yart.Yart.Error)
+  - Yart.Yart.Result.IsFailure
+  - Yart.Yart.Result.IsSuccessful
+  - Yart.Yart.Result.Match(System.Action,System.Action{Yart.Yart.Error})
+  - Yart.Yart.Result.Match``1(System.Func{``0},System.Func{Yart.Yart.Error,``0})
+  - Yart.Yart.Result.Ok
+  - Yart.Yart.Result.Ok``1(``0)
+  - Yart.Yart.Result.op_Implicit(Yart.Yart.Error)~Yart.Yart.Result
+  langs:
+  - csharp
+  - vb
+  name: Result
+  nameWithType: Result
+  fullName: Yart.Yart.Result
+  type: Struct
+  source:
+    id: Result
+    path: E:\Yart\src\Yart.Yart\Result.cs
+    startLine: 15
+  assemblies:
+  - Yart.Yart
+  namespace: Yart.Yart
+  summary: Represents the outcome of an operation
+  remarks: >-
+    <p>
+      <xref href="Yart.Yart.Result" data-throw-if-not-resolved="false"></xref> is a type that wraps the outcome of an operation. A result can be either a success or a failure.</p>
+    <p>The <xref href="Yart.Yart.Result" data-throw-if-not-resolved="false"></xref> type does not expose its constructor. Instead, use the <xref href="Yart.Yart.Result.Ok" data-throw-if-not-resolved="false"></xref> and <xref href="Yart.Yart.Result.Failure(Yart.Yart.Error)" data-throw-if-not-resolved="false"></xref> methods to create instances.</p>
+  example: []
+  syntax:
+    content: public readonly struct Result
+    content.vb: Public Structure Result
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Yart.Yart.Result.Ok
+  commentId: M:Yart.Yart.Result.Ok
+  id: Ok
+  parent: Yart.Yart.Result
+  langs:
+  - csharp
+  - vb
+  name: Ok()
+  nameWithType: Result.Ok()
+  fullName: Yart.Yart.Result.Ok()
+  type: Method
+  source:
+    id: Ok
+    path: E:\Yart\src\Yart.Yart\Result.cs
+    startLine: 21
+  assemblies:
+  - Yart.Yart
+  namespace: Yart.Yart
+  summary: Creates a successful result
+  example: []
+  syntax:
+    content: public static Result Ok()
+    return:
+      type: Yart.Yart.Result
+      description: A successful <xref href="Yart.Yart.Result" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Shared Function Ok() As Result
+  overload: Yart.Yart.Result.Ok*
+- uid: Yart.Yart.Result.Ok``1(``0)
+  commentId: M:Yart.Yart.Result.Ok``1(``0)
+  id: Ok``1(``0)
+  parent: Yart.Yart.Result
+  langs:
+  - csharp
+  - vb
+  name: Ok<T>(T)
+  nameWithType: Result.Ok<T>(T)
+  fullName: Yart.Yart.Result.Ok<T>(T)
+  type: Method
+  source:
+    id: Ok
+    path: E:\Yart\src\Yart.Yart\Result.cs
+    startLine: 29
+  assemblies:
+  - Yart.Yart
+  namespace: Yart.Yart
+  summary: Creates a successful result with a value
+  example: []
+  syntax:
+    content: public static Result<T> Ok<T>(T value)
+    parameters:
+    - id: value
+      type: '{T}'
+      description: The value of the result
+    typeParameters:
+    - id: T
+      description: The result's value
+    return:
+      type: Yart.Yart.Result{{T}}
+      description: A <xref href="Yart.Yart.Result%601" data-throw-if-not-resolved="false"></xref> containing the provided result
+    content.vb: Public Shared Function Ok(Of T)(value As T) As Result(Of T)
+  overload: Yart.Yart.Result.Ok*
+  nameWithType.vb: Result.Ok(Of T)(T)
+  fullName.vb: Yart.Yart.Result.Ok(Of T)(T)
+  name.vb: Ok(Of T)(T)
+- uid: Yart.Yart.Result.Failure(Yart.Yart.Error)
+  commentId: M:Yart.Yart.Result.Failure(Yart.Yart.Error)
+  id: Failure(Yart.Yart.Error)
+  parent: Yart.Yart.Result
+  langs:
+  - csharp
+  - vb
+  name: Failure(Error?)
+  nameWithType: Result.Failure(Error?)
+  fullName: Yart.Yart.Result.Failure(Yart.Yart.Error?)
+  type: Method
+  source:
+    id: Failure
+    path: E:\Yart\src\Yart.Yart\Result.cs
+    startLine: 36
+  assemblies:
+  - Yart.Yart
+  namespace: Yart.Yart
+  summary: Creates a failure result
+  example: []
+  syntax:
+    content: public static Result Failure(Error? error = null)
+    parameters:
+    - id: error
+      type: Yart.Yart.Error
+      description: An optional error for the result
+    return:
+      type: Yart.Yart.Result
+      description: A failure <xref href="Yart.Yart.Result" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Shared Function Failure([error] As [Error] = Nothing) As Result
+  overload: Yart.Yart.Result.Failure*
+  nameWithType.vb: Result.Failure(Error)
+  fullName.vb: Yart.Yart.Result.Failure(Yart.Yart.Error)
+  name.vb: Failure(Error)
+- uid: Yart.Yart.Result.IsSuccessful
+  commentId: P:Yart.Yart.Result.IsSuccessful
+  id: IsSuccessful
+  parent: Yart.Yart.Result
+  langs:
+  - csharp
+  - vb
+  name: IsSuccessful
+  nameWithType: Result.IsSuccessful
+  fullName: Yart.Yart.Result.IsSuccessful
+  type: Property
+  source:
+    id: IsSuccessful
+    path: E:\Yart\src\Yart.Yart\Result.cs
+    startLine: 50
+  assemblies:
+  - Yart.Yart
+  namespace: Yart.Yart
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the result is a success, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.
+  example: []
+  syntax:
+    content: public bool IsSuccessful { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsSuccessful As Boolean
+  overload: Yart.Yart.Result.IsSuccessful*
+- uid: Yart.Yart.Result.IsFailure
+  commentId: P:Yart.Yart.Result.IsFailure
+  id: IsFailure
+  parent: Yart.Yart.Result
+  langs:
+  - csharp
+  - vb
+  name: IsFailure
+  nameWithType: Result.IsFailure
+  fullName: Yart.Yart.Result.IsFailure
+  type: Property
+  source:
+    id: IsFailure
+    path: E:\Yart\src\Yart.Yart\Result.cs
+    startLine: 54
+  assemblies:
+  - Yart.Yart
+  namespace: Yart.Yart
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the result is a failure, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.
+  example: []
+  syntax:
+    content: public bool IsFailure { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsFailure As Boolean
+  overload: Yart.Yart.Result.IsFailure*
+- uid: Yart.Yart.Result.Error
+  commentId: P:Yart.Yart.Result.Error
+  id: Error
+  parent: Yart.Yart.Result
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: Result.Error
+  fullName: Yart.Yart.Result.Error
+  type: Property
+  source:
+    id: Error
+    path: E:\Yart\src\Yart.Yart\Result.cs
+    startLine: 60
+  assemblies:
+  - Yart.Yart
+  namespace: Yart.Yart
+  summary: The error for a failure result. May be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>
+  example: []
+  syntax:
+    content: public Error? Error { get; }
+    parameters: []
+    return:
+      type: Yart.Yart.Error
+    content.vb: Public ReadOnly Property [Error] As [Error]
+  overload: Yart.Yart.Result.Error*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown when the result is not a failure.
+- uid: Yart.Yart.Result.Match(System.Action,System.Action{Yart.Yart.Error})
+  commentId: M:Yart.Yart.Result.Match(System.Action,System.Action{Yart.Yart.Error})
+  id: Match(System.Action,System.Action{Yart.Yart.Error})
+  parent: Yart.Yart.Result
+  langs:
+  - csharp
+  - vb
+  name: Match(Action, Action<Error?>)
+  nameWithType: Result.Match(Action, Action<Error?>)
+  fullName: Yart.Yart.Result.Match(System.Action, System.Action<Yart.Yart.Error?>)
+  type: Method
+  source:
+    id: Match
+    path: E:\Yart\src\Yart.Yart\Result.cs
+    startLine: 69
+  assemblies:
+  - Yart.Yart
+  namespace: Yart.Yart
+  summary: Calls a delegate depending on the result's type
+  example: []
+  syntax:
+    content: public void Match(Action successAction, Action<Error?> failureAction)
+    parameters:
+    - id: successAction
+      type: System.Action
+      description: A delegate called when the result is a success
+    - id: failureAction
+      type: System.Action{Yart.Yart.Error}
+      description: A delegate called when the result is a failure
+    content.vb: Public Sub Match(successAction As Action, failureAction As Action(Of [Error]))
+  overload: Yart.Yart.Result.Match*
+  nameWithType.vb: Result.Match(Action, Action(Of Error))
+  fullName.vb: Yart.Yart.Result.Match(System.Action, System.Action(Of Yart.Yart.Error))
+  name.vb: Match(Action, Action(Of Error))
+- uid: Yart.Yart.Result.Match``1(System.Func{``0},System.Func{Yart.Yart.Error,``0})
+  commentId: M:Yart.Yart.Result.Match``1(System.Func{``0},System.Func{Yart.Yart.Error,``0})
+  id: Match``1(System.Func{``0},System.Func{Yart.Yart.Error,``0})
+  parent: Yart.Yart.Result
+  langs:
+  - csharp
+  - vb
+  name: Match<TReturn>(Func<TReturn>, Func<Error?, TReturn>)
+  nameWithType: Result.Match<TReturn>(Func<TReturn>, Func<Error?, TReturn>)
+  fullName: Yart.Yart.Result.Match<TReturn>(System.Func<TReturn>, System.Func<Yart.Yart.Error?, TReturn>)
+  type: Method
+  source:
+    id: Match
+    path: E:\Yart\src\Yart.Yart\Result.cs
+    startLine: 88
+  assemblies:
+  - Yart.Yart
+  namespace: Yart.Yart
+  summary: Calls a delegate depending on the result's type
+  example: []
+  syntax:
+    content: public TReturn Match<TReturn>(Func<TReturn> successFunc, Func<Error?, TReturn> failureFunc)
+    parameters:
+    - id: successFunc
+      type: System.Func{{TReturn}}
+      description: A delegate called when the result is a success
+    - id: failureFunc
+      type: System.Func{Yart.Yart.Error,{TReturn}}
+      description: A delegate called when the result is a failure
+    typeParameters:
+    - id: TReturn
+      description: The delegate's return type
+    return:
+      type: '{TReturn}'
+      description: The return value of the called delegate
+    content.vb: Public Function Match(Of TReturn)(successFunc As Func(Of TReturn), failureFunc As Func(Of [Error], TReturn)) As TReturn
+  overload: Yart.Yart.Result.Match*
+  nameWithType.vb: Result.Match(Of TReturn)(Func(Of TReturn), Func(Of Error, TReturn))
+  fullName.vb: Yart.Yart.Result.Match(Of TReturn)(System.Func(Of TReturn), System.Func(Of Yart.Yart.Error, TReturn))
+  name.vb: Match(Of TReturn)(Func(Of TReturn), Func(Of Error, TReturn))
+- uid: Yart.Yart.Result.op_Implicit(Yart.Yart.Error)~Yart.Yart.Result
+  commentId: M:Yart.Yart.Result.op_Implicit(Yart.Yart.Error)~Yart.Yart.Result
+  id: op_Implicit(Yart.Yart.Error)~Yart.Yart.Result
+  parent: Yart.Yart.Result
+  langs:
+  - csharp
+  - vb
+  name: implicit operator Result(Error)
+  nameWithType: Result.implicit operator Result(Error)
+  fullName: Yart.Yart.Result.implicit operator Yart.Yart.Result(Yart.Yart.Error)
+  type: Operator
+  source:
+    id: op_Implicit
+    path: E:\Yart\src\Yart.Yart\Result.cs
+    startLine: 97
+  assemblies:
+  - Yart.Yart
+  namespace: Yart.Yart
+  summary: Implicitly converts an <xref href="Yart.Yart.Result.Error" data-throw-if-not-resolved="false"></xref> to a <xref href="Yart.Yart.Result" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static implicit operator Result(Error error)
+    parameters:
+    - id: error
+      type: Yart.Yart.Error
+      description: The error to convert
+    return:
+      type: Yart.Yart.Result
+    content.vb: Public Shared Widening Operator CType([error] As [Error]) As Result
+  overload: Yart.Yart.Result.op_Implicit*
+  nameWithType.vb: Result.CType(Error)
+  fullName.vb: Yart.Yart.Result.CType(Yart.Yart.Error)
+  name.vb: CType(Error)
+references:
+- uid: Yart.Yart.Result
+  commentId: T:Yart.Yart.Result
+  parent: Yart.Yart
+  href: Yart.Yart.Result.html
+  name: Result
+  nameWithType: Result
+  fullName: Yart.Yart.Result
+- uid: Yart.Yart.Result.Ok
+  commentId: M:Yart.Yart.Result.Ok
+  href: Yart.Yart.Result.html#Yart_Yart_Result_Ok
+  name: Ok()
+  nameWithType: Result.Ok()
+  fullName: Yart.Yart.Result.Ok()
+  spec.csharp:
+  - uid: Yart.Yart.Result.Ok
+    name: Ok
+    href: Yart.Yart.Result.html#Yart_Yart_Result_Ok
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Yart.Yart.Result.Ok
+    name: Ok
+    href: Yart.Yart.Result.html#Yart_Yart_Result_Ok
+  - name: (
+  - name: )
+- uid: Yart.Yart.Result.Failure(Yart.Yart.Error)
+  commentId: M:Yart.Yart.Result.Failure(Yart.Yart.Error)
+  href: Yart.Yart.Result.html#Yart_Yart_Result_Failure_Yart_Yart_Error_
+  name: Failure(Error)
+  nameWithType: Result.Failure(Error)
+  fullName: Yart.Yart.Result.Failure(Yart.Yart.Error)
+  spec.csharp:
+  - uid: Yart.Yart.Result.Failure(Yart.Yart.Error)
+    name: Failure
+    href: Yart.Yart.Result.html#Yart_Yart_Result_Failure_Yart_Yart_Error_
+  - name: (
+  - uid: Yart.Yart.Error
+    name: Error
+    href: Yart.Yart.Error.html
+  - name: )
+  spec.vb:
+  - uid: Yart.Yart.Result.Failure(Yart.Yart.Error)
+    name: Failure
+    href: Yart.Yart.Result.html#Yart_Yart_Result_Failure_Yart_Yart_Error_
+  - name: (
+  - uid: Yart.Yart.Error
+    name: Error
+    href: Yart.Yart.Error.html
+  - name: )
+- uid: Yart.Yart
+  commentId: N:Yart.Yart
+  href: Yart.html
+  name: Yart.Yart
+  nameWithType: Yart.Yart
+  fullName: Yart.Yart
+  spec.csharp:
+  - uid: Yart
+    name: Yart
+    href: Yart.html
+  - name: .
+  - uid: Yart.Yart
+    name: Yart
+    href: Yart.Yart.html
+  spec.vb:
+  - uid: Yart
+    name: Yart
+    href: Yart.html
+  - name: .
+  - uid: Yart.Yart
+    name: Yart
+    href: Yart.Yart.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Yart.Yart.Result.Ok*
+  commentId: Overload:Yart.Yart.Result.Ok
+  href: Yart.Yart.Result.html#Yart_Yart_Result_Ok
+  name: Ok
+  nameWithType: Result.Ok
+  fullName: Yart.Yart.Result.Ok
+- uid: Yart.Yart.Result`1
+  commentId: T:Yart.Yart.Result`1
+  parent: Yart.Yart
+  href: Yart.Yart.Result-1.html
+  name: Result<T>
+  nameWithType: Result<T>
+  fullName: Yart.Yart.Result<T>
+  nameWithType.vb: Result(Of T)
+  fullName.vb: Yart.Yart.Result(Of T)
+  name.vb: Result(Of T)
+  spec.csharp:
+  - uid: Yart.Yart.Result`1
+    name: Result
+    href: Yart.Yart.Result-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Yart.Yart.Result`1
+    name: Result
+    href: Yart.Yart.Result-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Yart.Yart.Result{{T}}
+  commentId: T:Yart.Yart.Result{``0}
+  parent: Yart.Yart
+  definition: Yart.Yart.Result`1
+  href: Yart.Yart.Result-1.html
+  name: Result<T>
+  nameWithType: Result<T>
+  fullName: Yart.Yart.Result<T>
+  nameWithType.vb: Result(Of T)
+  fullName.vb: Yart.Yart.Result(Of T)
+  name.vb: Result(Of T)
+  spec.csharp:
+  - uid: Yart.Yart.Result`1
+    name: Result
+    href: Yart.Yart.Result-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Yart.Yart.Result`1
+    name: Result
+    href: Yart.Yart.Result-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Yart.Yart.Result.Failure*
+  commentId: Overload:Yart.Yart.Result.Failure
+  href: Yart.Yart.Result.html#Yart_Yart_Result_Failure_Yart_Yart_Error_
+  name: Failure
+  nameWithType: Result.Failure
+  fullName: Yart.Yart.Result.Failure
+- uid: Yart.Yart.Error
+  commentId: T:Yart.Yart.Error
+  parent: Yart.Yart
+  href: Yart.Yart.Error.html
+  name: Error
+  nameWithType: Error
+  fullName: Yart.Yart.Error
+- uid: Yart.Yart.Result.IsSuccessful*
+  commentId: Overload:Yart.Yart.Result.IsSuccessful
+  href: Yart.Yart.Result.html#Yart_Yart_Result_IsSuccessful
+  name: IsSuccessful
+  nameWithType: Result.IsSuccessful
+  fullName: Yart.Yart.Result.IsSuccessful
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Yart.Yart.Result.IsFailure*
+  commentId: Overload:Yart.Yart.Result.IsFailure
+  href: Yart.Yart.Result.html#Yart_Yart_Result_IsFailure
+  name: IsFailure
+  nameWithType: Result.IsFailure
+  fullName: Yart.Yart.Result.IsFailure
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: Yart.Yart.Result.Error*
+  commentId: Overload:Yart.Yart.Result.Error
+  href: Yart.Yart.Result.html#Yart_Yart_Result_Error
+  name: Error
+  nameWithType: Result.Error
+  fullName: Yart.Yart.Result.Error
+- uid: Yart.Yart.Result.Match*
+  commentId: Overload:Yart.Yart.Result.Match
+  href: Yart.Yart.Result.html#Yart_Yart_Result_Match_System_Action_System_Action_Yart_Yart_Error__
+  name: Match
+  nameWithType: Result.Match
+  fullName: Yart.Yart.Result.Match
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: System.Action{Yart.Yart.Error}
+  commentId: T:System.Action{Yart.Yart.Error}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<Error>
+  nameWithType: Action<Error>
+  fullName: System.Action<Yart.Yart.Error>
+  nameWithType.vb: Action(Of Error)
+  fullName.vb: System.Action(Of Yart.Yart.Error)
+  name.vb: Action(Of Error)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Yart.Yart.Error
+    name: Error
+    href: Yart.Yart.Error.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Yart.Yart.Error
+    name: Error
+    href: Yart.Yart.Error.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Func{{TReturn}}
+  commentId: T:System.Func{``0}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<TReturn>
+  nameWithType: Func<TReturn>
+  fullName: System.Func<TReturn>
+  nameWithType.vb: Func(Of TReturn)
+  fullName.vb: System.Func(Of TReturn)
+  name.vb: Func(Of TReturn)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - name: TReturn
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TReturn
+  - name: )
+- uid: System.Func{Yart.Yart.Error,{TReturn}}
+  commentId: T:System.Func{Yart.Yart.Error,``0}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<Error, TReturn>
+  nameWithType: Func<Error, TReturn>
+  fullName: System.Func<Yart.Yart.Error, TReturn>
+  nameWithType.vb: Func(Of Error, TReturn)
+  fullName.vb: System.Func(Of Yart.Yart.Error, TReturn)
+  name.vb: Func(Of Error, TReturn)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Yart.Yart.Error
+    name: Error
+    href: Yart.Yart.Error.html
+  - name: ','
+  - name: " "
+  - name: TReturn
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Yart.Yart.Error
+    name: Error
+    href: Yart.Yart.Error.html
+  - name: ','
+  - name: " "
+  - name: TReturn
+  - name: )
+- uid: '{TReturn}'
+  commentId: '!:TReturn'
+  definition: TReturn
+  name: TReturn
+  nameWithType: TReturn
+  fullName: TReturn
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: TReturn
+  name: TReturn
+  nameWithType: TReturn
+  fullName: TReturn
+- uid: Yart.Yart.Result.Error
+  commentId: P:Yart.Yart.Result.Error
+  href: Yart.Yart.Result.html#Yart_Yart_Result_Error
+  name: Error
+  nameWithType: Result.Error
+  fullName: Yart.Yart.Result.Error
+- uid: Yart.Yart.Result.op_Implicit*
+  commentId: Overload:Yart.Yart.Result.op_Implicit
+  name: implicit operator
+  nameWithType: Result.implicit operator
+  fullName: Yart.Yart.Result.implicit operator
+  nameWithType.vb: Result.CType
+  fullName.vb: Yart.Yart.Result.CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
