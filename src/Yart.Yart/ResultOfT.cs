@@ -98,4 +98,19 @@ public readonly struct Result<T>
         result._isSuccessful
             ? Result.Ok()
             : Result.Failure(result._error);
+
+    /// <summary>
+    /// Converts a result to a completed <see cref="Task{Result}"/>
+    /// </summary>
+    /// <param name="result">A result to cast</param>
+    public static implicit operator Task<Result<T>>(Result<T> result) => 
+        Task.FromResult(result);
+
+    /// <summary>
+    /// Converts a result to a completed <see cref="ValueTask{Result}" />
+    /// </summary>
+    /// <param name="result">A result to cast</param>
+    public static implicit operator ValueTask<Result<T>>(Result<T> result) =>
+        new(result);
+
 }

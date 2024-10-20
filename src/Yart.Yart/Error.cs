@@ -7,7 +7,7 @@ namespace Yart.Yart;
 #pragma warning disable CA1716 // Allow the name "Error" to be used as a class name
 
 /// <summary>
-/// Represents an error for a failure <seealso cref="Result"/>
+/// Represents an error for a failure <see cref="Result"/>
 /// </summary>
 public class Error
 {

@@ -71,4 +71,33 @@ public class ResultTests
 
         Assert.Equal(1, resultCode);
     }
+
+    [Fact]
+    public async Task CanConvertResultToTask()
+    {
+        var result = Ok();
+
+        Task<Result> Act() => result;
+
+        var resultTask = Act();
+        Assert.True(resultTask.IsCompletedSuccessfully);
+
+        var resultValue = await resultTask;
+        Assert.True(resultValue.IsSuccessful);
+    }
+
+    [Fact]
+    public async Task CanConvertResultToValueTask()
+    {
+        var result = Ok();
+
+        ValueTask<Result> Act() => result;
+
+        var resultTask = Act();
+        Assert.True(resultTask.IsCompletedSuccessfully);
+
+        var resultValue = await resultTask;
+        Assert.True(resultValue.IsSuccessful);
+    }
+
 }

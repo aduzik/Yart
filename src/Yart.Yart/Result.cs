@@ -92,8 +92,20 @@ public readonly struct Result
             : failureFunc(_error);
 
     /// <summary>
-    /// Implicitly converts an <seealso cref="Error"/> to a <seealso cref="Result"/>
+    /// Implicitly converts an <see cref="Error"/> to a <see cref="Result"/>
     /// </summary>
     /// <param name="error">The error to convert</param>
     public static implicit operator Result(Error error) => new(isSuccessful: false, error);
+
+    /// <summary>
+    /// Converts a <see cref="Result"/> to a <see cref="Task{Result}"/>
+    /// </summary>
+    /// <param name="result">The result to wrap in a <see cref="Task{Result}"/></param>
+    public static implicit operator Task<Result>(Result result) => Task.FromResult(result);
+
+    /// <summary>
+    /// Wraps a <see cref="Result" /> in a <see cref="ValueTask{Result}" />
+    /// </summary>
+    /// <param name="result">A <see cref="ValueTask{Result}" /> containing a result</param>
+    public static implicit operator ValueTask<Result>(Result result) => new(result);
 }

@@ -32,7 +32,10 @@ public class ResultOfTTests
 
         Result<object> Act() => untypedSuccess;
 
-        Assert.Throws<InvalidOperationException>(() => Act());
+        Assert.Throws<InvalidCastException>(() =>
+        {
+            Act();
+        });
     }
 
     [Fact]
@@ -68,4 +71,32 @@ public class ResultOfTTests
         Assert.Equal(1, resultCode);
     }
 
+    [Fact]
+    public async Task CanConvertResultToTask()
+    {
+        var result = Ok(new object());
+
+        Task<Result<object>> Act() => result;
+
+        var resultTask = Act();
+        Assert.True(resultTask.IsCompleted);
+
+        var resultValue = await resultTask;
+        Assert.True(resultValue.IsSuccessful);
+    }
+
+    [Fact]
+    public async Task CanConvertResultToValueTask()
+    {
+        var result = Ok(new object());
+
+        ValueTask<Result<object>> Act() => result;
+
+
+        var resultTask = Act();
+        Assert.True(resultTask.IsCompleted);
+
+        var resultValue = await resultTask;
+        Assert.True(resultValue.IsSuccessful);
+    }
 }
